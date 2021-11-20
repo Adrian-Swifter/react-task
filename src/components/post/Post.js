@@ -23,7 +23,7 @@ function Post({ title, date, creator, contentPreview, tags }) {
       </header>
       <p className="post-excerpt">{contentPreview}</p>
       <footer className="post-tags">
-        {/* For the purspose of clearing the error I put the index for the key */}
+        {/* For the purspose of clearing the error I put the index as keys */}
         {tags.map((tag, index) => (
           <button key={index}>{tag}</button>
         ))}

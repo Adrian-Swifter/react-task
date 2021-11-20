@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Post from "./post/Post";
 
 function Posts() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch("https://dummyapi.io/data/v1/post", {
+    fetch("https://dummyapi.io/data/v1/post/", {
       method: "GET",
       headers: {
         "app-id": "61942b303923f1ec0255c886",
@@ -20,14 +21,16 @@ function Posts() {
   return (
     <section>
       {posts.map((post) => (
-        <Post
-          key={post.id}
-          title={post.text}
-          date={post.publishDate}
-          creator={post.owner}
-          contentPreview={post.text}
-          tags={post.tags}
-        />
+        <Link to={post.id}>
+          <Post
+            key={post.id}
+            title={post.text}
+            date={post.publishDate}
+            creator={post.owner}
+            contentPreview={post.text}
+            tags={post.tags}
+          />
+        </Link>
       ))}
     </section>
   );
