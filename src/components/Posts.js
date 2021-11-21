@@ -21,9 +21,8 @@ function Posts() {
   return (
     <section>
       {posts.map((post) => (
-        <Link to={post.id}>
+        <Link key={post.id} to={post.id}>
           <Post
-            key={post.id}
             title={post.text}
             date={post.publishDate}
             creator={post.owner}
