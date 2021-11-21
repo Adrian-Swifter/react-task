@@ -1,24 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Post from "./post/Post";
 import useDummyAPI from "./hooks/useDummyAPI";
 
 function Posts() {
-  // const [posts, setPosts] = useState([]);
-  const posts = useDummyAPI("https://dummyapi.io/data/v1", "", "", "GET");
-  // useEffect(() => {
-  //   fetch("https://dummyapi.io/data/v1/post/", {
-  //     method: "GET",
-  //     headers: {
-  //       "app-id": "61942b303923f1ec0255c886",
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       setPosts(res.data);
-  //     });
-  // }, []);
-  console.log(posts);
+  const posts = useDummyAPI("https://dummyapi.io/data/v1/post", "", "", "GET");
+
+  const localizeDateAndTime = (datetimestring) => {
+    return new Date(datetimestring).toLocaleString();
+  };
   return (
     <section>
       {posts.map((post) => (
@@ -29,6 +19,7 @@ function Posts() {
             creator={post.owner}
             contentPreview={post.text}
             tags={post.tags}
+            localizeDateAndTime={localizeDateAndTime}
           />
         </Link>
       ))}

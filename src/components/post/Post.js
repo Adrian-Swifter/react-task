@@ -1,6 +1,6 @@
 import React from "react";
 
-function Post({ title, date, creator, contentPreview, tags }) {
+function Post({ title, date, creator, contentPreview, tags, localizeDateAndTime }) {
   return (
     <article className="post">
       <header className="post-header">
@@ -11,7 +11,7 @@ function Post({ title, date, creator, contentPreview, tags }) {
         <nav className="post-metadata">
           <ul>
             <li className="post-date">
-              <button>{date}</button>
+              <button>{localizeDateAndTime(date)}</button>
             </li>
             <li className="post-creator">
               <button>
@@ -23,7 +23,7 @@ function Post({ title, date, creator, contentPreview, tags }) {
       </header>
       <p className="post-excerpt">{contentPreview}</p>
       <footer className="post-tags">
-        {/* For the purspose of clearing the error I put the index as keys */}
+        {/* For the purspose of clearing the error I put the index as key */}
         {tags.map((tag, index) => (
           <button key={index}>{tag}</button>
         ))}

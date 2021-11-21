@@ -4,7 +4,7 @@ const useDummyAPI = (baseUrl, id, ext, method) => {
   const [data, setData] = useState([]);
   const separator = id !== "" ? "/" : "";
   useEffect(() => {
-    fetch(`${baseUrl}/post/${id}${separator}${ext}`, {
+    fetch(`${baseUrl}${separator}${id}${separator}${ext}`, {
       method: method,
       headers: {
         "app-id": "61942b303923f1ec0255c886",
@@ -14,7 +14,7 @@ const useDummyAPI = (baseUrl, id, ext, method) => {
       .then((res) => {
         res.data ? setData(res.data) : setData(res);
       });
-  }, [baseUrl, id, ext, method]);
+  }, [baseUrl, id, ext, method, separator]);
 
   return data;
 };
