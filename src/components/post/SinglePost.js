@@ -1,14 +1,16 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import useDummyAPI from "../hooks/useDummyAPI";
+import Posts from "../Posts";
 
 function SinglePost() {
   const { id } = useParams();
   const baseUrl = "https://dummyapi.io/data/v1";
+
   const comments = useDummyAPI(baseUrl, id, "comment", "GET");
 
   const post = useDummyAPI(baseUrl, id, "", "GET");
-
+  console.log(post);
   return (
     <>
       {post.length === 0 ? (
@@ -42,9 +44,9 @@ function SinglePost() {
             <p>{post.text}</p>
           </div>
           <div className="single-post-tags">
-            <button>tag1</button>
-            <button>tag1</button>
-            <button>tag1</button>
+            {post.tags.map((tag, index) => (
+              <button key={index}>{tag}</button>
+            ))}
           </div>
           <div className="comments">
             {comments.length !== 0 ? (
