@@ -236,3 +236,40 @@ a {
   margin-bottom: 1rem;
   font-family: var(--content-text-font);
 }
+
+/* FORM */
+.edit-post h1,
+.create-post h1 {
+  font-family: var(--headings-font);
+}
+
+.form {
+  font-family: var(--content-text-font);
+}
+
+.form fieldset {
+  margin-bottom: 1.5rem;
+}
+
+.form input {
+  width: 100%;
+  font-family: var(--content-text-font);
+}
+
+.form button {
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-family: var(--content-text-font);
+  background-color: var(--main-text-color);
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 3px;
+}
+
+/* ADD NEW POST */
+.add-new-post {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: flex-end;
+}

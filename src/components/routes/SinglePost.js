@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import useDummyAPI from "../hooks/useDummyAPI";
 import heart from "../assets/images/heart.png";
 function SinglePost() {
@@ -20,6 +20,9 @@ function SinglePost() {
       ) : (
         <article className="single-post">
           <h2 className="single-post-title">Single Post Title</h2>
+          <Link to={`/${id}/edit`} state={{post: post}}>
+            Edit post
+          </Link>
           <div>
             <img className="featured-image" src={post.image} alt="" />
           </div>
@@ -74,7 +77,9 @@ function SinglePost() {
                 </div>
               ))
             ) : (
-              <h3 className="no-comments">There are no comments for this post.</h3>
+              <h3 className="no-comments">
+                There are no comments for this post.
+              </h3>
             )}
             <div className="submit-comment">
               <form>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Post from "./post/Post";
+import Post from "./routes/Post";
 import useDummyAPI from "./hooks/useDummyAPI";
 
 function Posts() {
@@ -11,6 +11,10 @@ function Posts() {
   };
   return (
     <section>
+      <div className="add-new-post">
+        <Link to={"/create"}>Add new post</Link>
+      </div>
+
       {posts.map((post) => (
         <Link key={post.id} to={post.id}>
           <Post
