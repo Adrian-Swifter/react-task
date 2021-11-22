@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import useDummyAPI from "../hooks/useDummyAPI";
-
+import heart from "../assets/images/heart.png";
 function SinglePost() {
   const { id } = useParams();
   const baseUrl = "https://dummyapi.io/data/v1/post";
@@ -25,20 +25,18 @@ function SinglePost() {
           </div>
           <div className="single-post-metadata">
             <div className="creator-date-wrapper">
-              <div className="single-post-creator">
-                <div className="creator-image">
-                  <img src={post.owner.picture} alt="" />
-                </div>
-                <button>
-                  {post.owner.firstName} {post.owner.lastName}
-                </button>
+              <div className="creator-image">
+                <img src={post.owner.picture} alt="" />
               </div>
-              <div className="singe-post-date">
-                <button>{localizeDateAndTime(post.publishDate)}</button>
-              </div>
+              <button>
+                {post.owner.firstName} {post.owner.lastName}
+              </button>
+              <button>{localizeDateAndTime(post.publishDate)}</button>
             </div>
             <div className="likes-wrapper">
-              <span className="likes-icon">heart</span>
+              <span className="likes-icon">
+                <img src={heart} alt="" />
+              </span>
               <span className="likes-count">{post.likes}</span>
             </div>
           </div>
@@ -51,6 +49,9 @@ function SinglePost() {
             ))}
           </div>
           <div className="comments">
+            <h3 className="comments-count">
+              {comments.length} {comments.length === 1 ? "Comment" : "Comments"}
+            </h3>
             {comments.length !== 0 ? (
               comments.map((comment) => (
                 <div key={comment.id} className="comment">
@@ -73,8 +74,15 @@ function SinglePost() {
                 </div>
               ))
             ) : (
-              <h3>There are no comments for this post.</h3>
+              <h3 className="no-comments">There are no comments for this post.</h3>
             )}
+            <div className="submit-comment">
+              <form>
+                <textarea placeholder="Write a new comment" />
+
+                <input type="submit" value="Submit" />
+              </form>
+            </div>
           </div>
         </article>
       )}
