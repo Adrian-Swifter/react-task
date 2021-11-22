@@ -1,6 +1,11 @@
 import React from "react";
 
 function Comments({ comments, localizeDateAndTime }) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Functionality not working at the moment...");
+  };
+
   return (
     <div className="comments">
       <h3 className="comments-count">
@@ -32,7 +37,7 @@ function Comments({ comments, localizeDateAndTime }) {
         <form>
           <textarea placeholder="Write a new comment" />
 
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit" onClick={(e) => handleSubmit(e)}/>
         </form>
       </div>
     </div>
