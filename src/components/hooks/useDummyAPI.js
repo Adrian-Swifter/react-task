@@ -14,6 +14,10 @@ const useDummyAPI = (baseUrl, id, ext, method) => {
       .then((res) => res.json())
       .then((res) => {
         res.data ? setData(res.data) : setData(res);
+      })
+      //Here I could push error to state and use that to conditionaly render custom error component
+      .catch((e) => {
+        console.log(e);
       });
   }, [baseUrl, id, ext, method, separator]);
 
