@@ -77,11 +77,6 @@ a {
 }
 
 .post-metadata button {
-  /* background-color: var(--metadata-bg-color);
-  border: none;
-  padding: 2px 0.4rem;
-  font-family: var(--content-text-font);
-  cursor: pointer; */
   border: none;
   border-bottom: 4px solid var(--metadata-bg-color);
   background-color: transparent;
@@ -239,7 +234,8 @@ a {
 
 /* FORM */
 .edit-post h1,
-.create-post h1 {
+.create-post h1,
+.loading-post {
   font-family: var(--headings-font);
 }
 
@@ -267,9 +263,41 @@ a {
   border-radius: 3px;
 }
 
-/* ADD NEW POST */
-.add-new-post {
+/* ADD NEW AND EDIT POST LINK*/
+.link-wrapper {
   padding: 2rem 0;
   display: flex;
   justify-content: flex-end;
+  font-family: var(--content-text-font);
+  font-size: 1.3rem;
+}
+
+.link-wrapper a {
+  color: var(--main-text-color);
+  font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .App {
+    padding: 0 1rem;
+  }
+
+  .link-wrapper {
+    justify-content: center;
+  }
+
+  .creator-date-wrapper,
+  .comment-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .creator-date-wrapper button,
+  .comment-meta button {
+    margin-bottom: 0.3rem;
+  }
+
+  .post-metadata ul {
+    flex-direction: column;
+  }
 }

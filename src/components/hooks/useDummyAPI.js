@@ -6,6 +6,7 @@ const useDummyAPI = (baseUrl, id, ext, method) => {
   useEffect(() => {
     fetch(`${baseUrl}${separator}${id}${separator}${ext}`, {
       method: method,
+      // For production I would probably try to hide this ID
       headers: {
         "app-id": "61942b303923f1ec0255c886",
       },

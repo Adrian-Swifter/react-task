@@ -11,7 +11,7 @@ function Posts() {
   };
   return (
     <section>
-      <div className="add-new-post">
+      <div className="link-wrapper">
         <Link to={"/create"}>Add new post</Link>
       </div>
 

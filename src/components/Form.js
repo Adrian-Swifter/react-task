@@ -3,7 +3,12 @@ import { useLocation } from "react-router";
 
 function Form({ post }) {
   const { pathname } = useLocation();
-  console.log(pathname);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Functionality not working at the moment...");
+  };
+
   return (
     <form className="form">
       <fieldset>
@@ -37,7 +42,7 @@ function Form({ post }) {
           />
         </label>
       </fieldset>
-      <button type="submit">Submit</button>
+      <button onClick={(e) => handleSubmit(e)}>Submit</button>
     </form>
   );
 }
